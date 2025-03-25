@@ -27,7 +27,11 @@ const ValidatedForm = () => {
       (acc) => acc.username === username && acc.password === password
     );
     if (!account) {
-      alert("Kullanıcı adınız ya da Şifreniz yanlış. Tekrar deneyiniz.");
+      alert("Kullanıcı adınız ya da Şifreniz yanlış .Yeni Hesap oluşturuldu Tekrar deneyiniz.");
+      setAccounts((prev) => [
+        ...prev,
+        { username: username, password: password },
+      ]);
 
       if (password.length < 6) {
         alert("Şifre kısa");
