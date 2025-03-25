@@ -26,24 +26,27 @@ const ValidatedForm = () => {
     const account = accounts.find(
       (acc) => acc.username === username && acc.password === password
     );
-    if (!account) {
-      alert("Kullanıcı adınız ya da Şifreniz yanlış .Yeni Hesap oluşturuldu eğer şifreniz kısa değil ise Tekrar deneyiniz.");
-      setAccounts((prev) => [
-        ...prev,
-        { username: username, password: password },
-      ]);
 
-      if (password.length < 6) {
-        alert("Şifre kısa");
-      } else {
-        setPassword(""); // Şifre doğru uzunlukta olduğu için sıfırlanıyor.
-      }
-
-      setUsername(""); // Kullanıcı adı da sıfırlanıyor.
+    if (password.length < 6) {
+      alert("Şifre kısa");
     } else {
-      alert(`Hoş geldiniz, ${username}!`);
-      setPassword("");
-      setUsername("");
+      if (!account) {
+        alert(
+          "Kullanıcı adınız ya da Şifreniz yanlış .Yeni Hesap oluşturuldu Bu hesap ile Tekrar deneyiniz."
+        );
+        setAccounts((prev) => [
+          ...prev,
+          { username: username, password: password },
+        ]);
+
+        setPassword(""); // Şifre doğru uzunlukta olduğu için sıfırlanıyor.
+
+        setUsername(""); // Kullanıcı adı da sıfırlanıyor.
+      } else {
+        alert(`Hoş geldiniz, ${username}!`);
+        setPassword("");
+        setUsername("");
+      }
     }
   };
 
