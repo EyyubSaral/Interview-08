@@ -32,7 +32,7 @@ const ValidatedForm = () => {
     } else {
       if (!account) {
         alert(
-          "Kullanıcı adınız ya da Şifreniz yanlış .Yeni Hesap oluşturuldu Bu hesap ile Tekrar deneyiniz."
+          "Kullanıcı adınız veya şifreniz doğru değil gibi görünüyor. Bu nedenle sizin için yeni bir hesap oluşturduk. Yeni hesabınızı kullanarak tekrar giriş yapmayı deneyebilirsiniz."
         );
         setAccounts((prev) => [
           ...prev,
